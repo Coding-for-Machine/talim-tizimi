@@ -4,7 +4,7 @@ WORKDIR /app
 
 COPY requirements.txt requirements.txt
 
-RUN pip install -r requirements.txt  # Typo to'g'rilandi: 'requirments.txt' -> 'requirements.txt'
+RUN pip install -r requirements.txt
 
 COPY . .
 
