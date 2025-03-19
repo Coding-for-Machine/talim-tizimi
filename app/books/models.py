@@ -1,5 +1,6 @@
 from django.db import models
-
+from django.contrib import admin
+from django.utils.html import format_html
 
 class TimeMixin(models.Model):
     is_active = models.BooleanField(default=True)
@@ -23,4 +24,12 @@ class Books(TimeMixin):
         db_table_comment = "Kitoblar-javoni"
         verbose_name = "Kitob"
         verbose_name_plural = "Kitoblar"
-        # label = "kkk"
+
+    @admin.display
+    def colored_name(self):
+        return format_html(
+                '<span style="color: red;">{} {}</span>',
+                self.title,
+                self.created_at,
+            )
+
